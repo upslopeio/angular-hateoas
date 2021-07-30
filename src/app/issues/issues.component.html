@@ -1,0 +1,7 @@
+<h2>Issues are:</h2>
+
+<div *ngFor="let issue of issues?._embedded?.issueList">
+  <a [routerLink]="['/issues', issue.id]">{{issue.description}}</a>
+</div>
+
+<pre><code>{{ issues | json }}</code></pre>

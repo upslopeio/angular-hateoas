@@ -1,0 +1,11 @@
+{
+  "_links": {
+    "issues": {
+      "href": "http://localhost:4200/assets/issues.json"
+    },
+    "issues:find": {
+      "href": "http://localhost:4200/assets/issues/{id}.json",
+      "templated": true
+    }
+  }
+}

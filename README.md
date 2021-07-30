@@ -1,27 +1,53 @@
-# AngularHateoas
+# Angular Hateoas
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.1.4.
+## HATEOAS Concepts
 
-## Development server
+Every API starts with a set of links to the various API endpoints:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+```json
+{
+  "_links": {
+    "issues": {
+      "href": "http://example.com/issues"
+    },
+    "employees": {
+      "href": "http://example.com/employees"
+    }
+  }
+}
+```
 
-## Code scaffolding
+Clients should refer to links by name, such as `_links.issues.href` - if they follow that link, they'll see a list of issues:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```json
+{
+  "_embedded": {
+    "issueList": [
+      {
+        "id": "039a486b-39df-496f-a32d-302cdb39fab7",
+        "description": "get webflux working",
+        "_links": {
+          "self": {
+            "href": "http://example.com/issues/039a486b-39df-496f-a32d-302cdb39fab7"
+          }
+        }
+      },
+      ...
+    ]
+  },
+  "_links": {
+    "self": {
+      "href": "http://example.com/issues"
+    }
+  }
+}
+```
 
-## Build
+To follow the link to the first item, you might use `_embedded.issueList[0]._links.self.href`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Angular Concepts
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Never ever use string concatenation to generate a server-side URL
+- Load the root list of links in a parent resolver
+- Cache the root list of links so you don't make two requests when components load
+- Access resolver data from components or other resolvers
