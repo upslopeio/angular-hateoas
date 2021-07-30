@@ -1,0 +1,9 @@
+{
+  "id": "751a1a2f-bb02-4741-a76b-e4759d8286f6",
+  "description": "get templates working",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/issues/751a1a2f-bb02-4741-a76b-e4759d8286f6"
+    }
+  }
+}

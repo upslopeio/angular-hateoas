@@ -1,0 +1,9 @@
+{
+  "id": "039a486b-39df-496f-a32d-302cdb39fab7",
+  "description": "get webflux working",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/issues/039a486b-39df-496f-a32d-302cdb39fab7"
+    }
+  }
+}

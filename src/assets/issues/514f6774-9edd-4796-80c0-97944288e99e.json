@@ -1,0 +1,9 @@
+{
+  "id": "514f6774-9edd-4796-80c0-97944288e99e",
+  "description": "get show working",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/issues/514f6774-9edd-4796-80c0-97944288e99e"
+    }
+  }
+}

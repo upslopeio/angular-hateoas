@@ -1,0 +1,9 @@
+{
+  "id": "2bc56990-539b-46b9-b940-6a0fa8562322",
+  "description": "get list working",
+  "_links": {
+    "self": {
+      "href": "http://localhost:8080/issues/2bc56990-539b-46b9-b940-6a0fa8562322"
+    }
+  }
+}
