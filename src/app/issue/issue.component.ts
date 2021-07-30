@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import EntityModel from '../entity-model';
+import Issue from '../issues/issue';
 
 @Component({
   selector: 'app-issue',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IssueComponent implements OnInit {
 
-  constructor() { }
+  issue?: EntityModel<Issue>;
+
+  constructor(private activatedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data) => {
+      this.issue = data.issue;
+    });
   }
 
 }

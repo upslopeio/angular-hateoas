@@ -24,7 +24,7 @@ const routes: Routes = [
         path: 'issues/:id',
         component: IssueComponent,
         resolve: {
-          issues: IssueResolver,
+          issue: IssueResolver,
         },
       },
     ],
